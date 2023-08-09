@@ -7,10 +7,11 @@ namespace task3
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             Console.WriteLine("Enter an odd number of non-repeating strings for moves (e.g., Rock Paper Scissors):");
-            var moves = GetMovesFromUser();
+            
+            var moves = args; 
 
             if (moves.Length < 3 || moves.Length % 2 == 0 || HasDuplicates(moves))
             {
@@ -22,7 +23,7 @@ namespace task3
             var computerMove = GetComputerMove(moves);
             var hmac = CalculateHMAC(key, computerMove);
             ShowHMAC(hmac);
-
+             restart:
             DisplayMenu(moves);
 
             int userMove;
@@ -64,8 +65,10 @@ namespace task3
 
             Console.WriteLine($"HMAC key: {ByteArrayToHexString(key)}");
 
-            Main();
+            goto restart;
         }
+
+
 
         static string[] GetMovesFromUser()
         {
