@@ -3,13 +3,20 @@
 namespace task3
 {
     using System;
-
     class TableGenerator
     {
         public static void GenerateTable(string[] moves)
         {
             int n = moves.Length;
             string[,] table = new string[n + 1, n + 1];
+
+            for (int i = 0; i < n + 1; i++)
+            {
+                for (int j = 0; j < n + 1; j++)
+                {
+                    table[i, j] = ""; 
+                }
+            }
 
             for (int i = 0; i < n; i++)
             {
@@ -46,5 +53,6 @@ namespace task3
             }
         }
     }
+
 
 }

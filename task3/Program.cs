@@ -63,6 +63,8 @@ namespace task3
                 Console.WriteLine("It's a draw!");
 
             Console.WriteLine($"HMAC key: {ByteArrayToHexString(key)}");
+
+            Main();
         }
 
         static string[] GetMovesFromUser()
